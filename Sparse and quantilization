@@ -2,3 +2,4 @@
 9.3: Denil, Misha, Shakibi, Babak, Dinh, Laurent, de Freitas, Nando, et al. Predicting parameters in deep learning. In Advances in Neural Information Processing Systems, pp. 2148–2156, 2013.
 9.4: Vanhoucke, Vincent, Senior, Andrew, and Mao, Mark Z. Improving the speed of neural networks on cpus. In Proc. Deep Learning and Unsupervised Feature Learning NIPS Workshop, 2011.
 9.5：Han, Song, Pool, Jeff, Tran, John, and Dally, William J. Learning both weights and connections for efficient neural networks. In Advances in Neural Information Processing Systems, 2015
+9.6：J. Wang et al., "High PE Utilization CNN Accelerator with Channel Fusion Supporting Pattern-Compressed Sparse Neural Networks," 2020 57th ACM/IEEE Design Automation Conference (DAC), 2020, pp. 1-6
