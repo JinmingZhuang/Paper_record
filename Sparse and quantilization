@@ -4,3 +4,5 @@
 9.5：Han, Song, Pool, Jeff, Tran, John, and Dally, William J. Learning both weights and connections for efficient neural networks. In Advances in Neural Information Processing Systems, 2015
 9.6：J. Wang et al., "High PE Utilization CNN Accelerator with Channel Fusion Supporting Pattern-Compressed Sparse Neural Networks," 2020 57th ACM/IEEE Design Automation Conference (DAC), 2020, pp. 1-6
 9.7：Mao, H., Han, S., Pool, J., Li, W., Liu, X., Wang, Y., & Dally, W. J. (2017). Exploring the Granularity of Sparsity in Convolutional Neural Networks. 2017 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW).
+9.8：Lu, L., Xie, J., Huang, R., Zhang, J., Lin, W., & Liang, Y. (2019). An Efficient Hardware Accelerator for Sparse Convolutional Neural Networks on FPGAs. 2019 IEEE 27th Annual International Symposium on Field-Programmable Custom Computing Machines (FCCM)
+9.9：Zhu, C., Huang, K., Yang, S., Zhu, Z., Zhang, H., & Shen, H. (2020). An Efficient Hardware Accelerator for Structured Sparse Convolutional Neural Networks on FPGAs. IEEE Transactions on Very Large Scale Integration (VLSI) Systems, 1–13.
