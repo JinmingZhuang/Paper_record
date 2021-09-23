@@ -10,3 +10,7 @@
 9.15：S. Huang, C. Pearson, R. Nagi, J. Xiong, D. Chen and W. Hwu, "Accelerating Sparse Deep Neural Networks on FPGAs," 2019 IEEE High Performance Extreme Computing Conference (HPEC), 2019.
 9.16:C. Deng, Y. Sui, S. Liao, X. Qian and B. Yuan, "GoSPA: An Energy-efficient High-performance Globally Optimized SParse Convolutional Neural Network Accelerator," 2021 ACM/IEEE 48th Annual International Symposium on Computer Architecture (ISCA), 2021.
 9.17：L. Lu, Y. Liang, Q. Xiao and S. Yan, "Evaluating Fast Algorithms for Convolutional Neural Networks on FPGAs," 2017 IEEE 25th Annual International Symposium on Field-Programmable Custom Computing Machines (FCCM), 2017, pp. 101-108, doi: 10.1109/FCCM.2017.64.
+9.22: Parashar, A., Rhu, M., Mukkara, A., Puglielli, A., Venkatesan, R., Khailany, B., … Dally, W. J. SCNN: An Accelerator for Compressed-sparse Convolutional Neural Networks. ISCA 2017.
+9.23: Gondimalla, A., Chesnut, N., Thottethodi, M., & Vijaykumar, T. N. (2019). SparTen: A Sparse Tensor Accelerator for Convolutional Neural Networks. MICRO 2019.
+9.24: J. -F. Zhang, C. -E. Lee, C. Liu, Y. S. Shao, S. W. Keckler and Z. Zhang, "SNAP: An Efficient Sparse Neural Acceleration Processor for Unstructured Sparse Deep Neural Network Inference," in IEEE Journal of Solid-State Circuits.
+9.25: H. Jun et al., "HBM (High Bandwidth Memory) DRAM Technology and Architecture," 2017 IEEE International Memory Workshop (IMW), 2017.
