@@ -13,4 +13,3 @@
 9.22: Parashar, A., Rhu, M., Mukkara, A., Puglielli, A., Venkatesan, R., Khailany, B., … Dally, W. J. SCNN: An Accelerator for Compressed-sparse Convolutional Neural Networks. ISCA 2017.
 9.23: Gondimalla, A., Chesnut, N., Thottethodi, M., & Vijaykumar, T. N. (2019). SparTen: A Sparse Tensor Accelerator for Convolutional Neural Networks. MICRO 2019.
 9.24: J. -F. Zhang, C. -E. Lee, C. Liu, Y. S. Shao, S. W. Keckler and Z. Zhang, "SNAP: An Efficient Sparse Neural Acceleration Processor for Unstructured Sparse Deep Neural Network Inference," in IEEE Journal of Solid-State Circuits.
-9.25: H. Jun et al., "HBM (High Bandwidth Memory) DRAM Technology and Architecture," 2017 IEEE International Memory Workshop (IMW), 2017.
