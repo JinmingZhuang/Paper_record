@@ -69,3 +69,25 @@ Reasons:<br>
 #### Criticize:
 1) How do they decide the data flow.(WS are used in the design without analysis)<br>
 2) How does it behave when using different data type(BF16 in, FP32 out). Generality need to be shown.<br>
+
+## 2021.12.18
+### Paper:Time-Predictable Acceleration of Deep Neural Networks on FPGA SoC Platforms
+### Author:Francesco Restuccia and Alessandro Biondi. <br> <br> Publish: 2021 IEEE Real-Time Systems Symposium
+#### Motivation:
+1) Thanks to the cycle accurate property of FPGA, many Cyber-Physical Systems(safety-critial applications) can be done on FPGA.<br>
+2) FPGA is not amiable to software programmers. Vitis AI supports mainstream frameworks by using DPU core.<br>
+3) Thus it is important to figure out the behaviour of DPU.<br>
+#### Contributions:
+1) Designed hardware profiler to profiling the execution behaviour of DPU.<br>
+2) Based on the profiling data and execution model, they formed a pessimistic analytical model for predicting the run time.<br>
+3) Proposed DICTAT, by redirecting the ins to PS on chip memory, it can amortize the burden of fetching ins and data both on DRAM.<br>
+#### Challenge:
+1) The behaviour of DPU parallism(Read, write, Ins fetch) and DRAM can not be measured accurately.<br>
+#### Experiment result:
+1) The run time model is not accurate, but gives us a pessimistic results.<br>
+![image](https://user-images.githubusercontent.com/77606152/146655280-9a4800ea-41d5-41e9-b022-dc8ac1d950d6.png)
+#### Defects:
+1) DPU model not accurate.<br>
+2) DDR behaviour don't know.<br>
+3) Don't consider PS interupt.(Adding this factor to pessimistic estimation of DRAM)<br>
+4) Lack of generality. Only target on Zynq Ultrascale.<br>
