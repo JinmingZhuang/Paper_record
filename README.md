@@ -91,3 +91,30 @@ Reasons:<br>
 2) DDR behaviour don't know.<br>
 3) Don't consider PS interupt.(Adding this factor to pessimistic estimation of DRAM)<br>
 4) Lack of generality. Only target on Zynq Ultrascale.<br>
+
+## 2021.12.22 (CNN Part need to be read again)
+### Paper:Search for Optimal Systolic Arrays: A Comprehensive Automated Exploration Framework and Lessons Learned
+### Author:Jie Wang and Jason Cong. <br> <br> Publish: arXiv:2111.14252v1
+#### Motivation:
+1) Incomplete design space.(tiling factor selection, divisor)<br>
+2) Inaccurate performance modeling.(Given a settled design the estimated HW utilization and throughput is not as closed as the real one)<br>
+3) Inefficient serach methods.(Targeting on part of the objection, e.g. of-chip data communication only)<br>
+#### Contrubitions:
+1) Comprehensice design space and accurate performace modeling. (Dataflow, loop permutaion and tiling)<br>
+2) Mathematical Programming based optimization and evolutionary search.(First use MP to provide a relative better model then use evolutionary algorithm to search)<br>
+#### Experiment/conclusion(CNN part need to be added):
+1) Performance Model Validation<br>
+   a. Platform: U250<br>
+   b. Baseline: HLS report<br>
+   c. Benchmark: MM[64,64,64] CNN[16(Inc),16(Outc),16,16,3,3] <br>
+   d. Result: Error rate, 1.99%, 0%, 0% for latency, BRAM and DSP <br>
+2) Auto-tuning Evaluation<br>
+   a. Platform: Intel Xeon E5-2680 v4 CPU<br>
+   b. Baseline: 18 other search methods.<br>
+   c. Benchmark: MM[1024,1024,1024]<br>
+   d. Result:Odyssey locates designs that achieve more than 95% of the optimal performance<br>
+   ![image](https://user-images.githubusercontent.com/77606152/147143570-2e435415-2299-4c13-9d9a-cc4503f3ae3d.png)
+3) Application MM[1024,1024,1024]<br>
+   Dataflow:<i,j>  Loop permutation:<[i,j],k> <br>
+   ![image](https://user-images.githubusercontent.com/77606152/147143692-86c9e16e-b5e7-4f25-b538-0805d791df0e.png)
+   ![image](https://user-images.githubusercontent.com/77606152/147143931-8533c155-d463-4bf3-81ea-c90713a57c22.png)
