@@ -92,8 +92,8 @@ Reasons:<br>
 3) Don't consider PS interupt.(Adding this factor to pessimistic estimation of DRAM)<br>
 4) Lack of generality. Only target on Zynq Ultrascale.<br>
 
-## 2021.12.22 (CNN Part need to be read again)
-### Paper:Search for Optimal Systolic Arrays: A Comprehensive Automated Exploration Framework and Lessons Learned
+## 2021.12.22 
+### Paper:Search for Optimal Systolic Arrays: A Comprehensive Automated Exploration Framework and Lessons Learned (CNN Part need to be read again)
 ### Author:Jie Wang and Jason Cong. <br> <br> Publish: arXiv:2111.14252v1
 #### Motivation:
 1) Incomplete design space.(tiling factor selection, divisor)<br>
@@ -118,3 +118,29 @@ Reasons:<br>
    Dataflow:<i,j>  Loop permutation:<[i,j],k> <br>
    ![image](https://user-images.githubusercontent.com/77606152/147143692-86c9e16e-b5e7-4f25-b538-0805d791df0e.png)
    ![image](https://user-images.githubusercontent.com/77606152/147143931-8533c155-d463-4bf3-81ea-c90713a57c22.png)
+
+## 2021.12.24
+### Paper: CoSA:Scheduling by Constrained Optimization for Spatial Accelerators(Re-reading needed)
+### Author:Yakun Sophia Shao. <br> <br> Publish: 2021 ISCA
+#### Motivation:
+1) Three main schelduers have their drawbacks. <br>
+   A. Brute-force: Expensive cost on exhaustive search for complex accelerators. <br>
+   B. Feedback-driven: can't be used in hardware development period. <br>
+   C. Constrained-optimization: Lack direct support for tile-size(Mannual enter<br>
+#### Content:
+1) Target on DNNs with 7 variables on spatial architecures.<br>
+2) Scheduling decisions: Loop tile, loop permutation, sptial mapping.<br>
+3) CoSA model build: Buffer, computational resources constrained. <br>
+4) Objection: Maximum on-chip buffer utilization, mimimize computational latency, minimize data traffic. Overall consideration, give each objection a weight.<br>
+#### Experiment:
+1) Platform: Time loop for performance and energy estimation. NoC simulator(More sensitive for data communication).<br>
+2) Baseline Scheduler: Time loop mapper and random schedular(stop when finding five feasible solution).<br>
+3) Result:<br>
+   A. Search time speedup on Time loop 5.2X and 1.5X<br>
+   ![image](https://user-images.githubusercontent.com/77606152/147369094-5285b7d4-e706-4c15-9706-eb070f2ee9f9.png)<br>
+   B. Search time speedup on NoC 3.3X and 2.5X<br>
+   ![image](https://user-images.githubusercontent.com/77606152/147369225-ae188770-d0be-4c4d-bda1-868062184b7e.png)<br>
+   C. Energy on Time loop 3.3X and 1.22X<br>
+   ![image](https://user-images.githubusercontent.com/77606152/147369275-c21f507f-910f-45dc-9c06-c855247cd696.png)<br>
+#### Argument:
+1) Didn't show the result of objective function acheived by these three schdulers.<br>
