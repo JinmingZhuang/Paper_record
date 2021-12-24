@@ -144,3 +144,4 @@ Reasons:<br>
    ![image](https://user-images.githubusercontent.com/77606152/147369275-c21f507f-910f-45dc-9c06-c855247cd696.png)<br>
 #### Argument:
 1) Didn't show the result of objective function acheived by these three schdulers.<br>
+2) Didn't consider DNN sparsity
