@@ -144,4 +144,39 @@ Reasons:<br>
    ![image](https://user-images.githubusercontent.com/77606152/147369275-c21f507f-910f-45dc-9c06-c855247cd696.png)<br>
 #### Argument:
 1) Didn't show the result of objective function acheived by these three schdulers.<br>
-2) Didn't consider DNN sparsity
+2) Didn't consider DNN sparsity<br>
+
+## 2021.12.24
+### Paper: Why Systolic Architectures? 
+### Author:H.T. Kung. <br> <br> Publish: 1982 Computer.
+#### Motivation:
+1) Solve the I/O bandwidth bottleneck in compute-bound applications.<br>
+#### Principle:
+1) Single access from mem, multiple use in PEs.<br>
+#### Content:
+By using 1-D convolution as an example to illustrate different systolic array design method.<br>
+A. With global data communication<br>
+1) Broadcast input , move results , weights stay.<br>
+![image](https://user-images.githubusercontent.com/77606152/147392030-797dc768-ca3f-4379-9701-8dfc2ea2e33f.png)<br>
+2) Broadcast input , move weights , results stay.<br>
+![image](https://user-images.githubusercontent.com/77606152/147392058-3e063017-cd98-4ee4-8ce7-07de683afa31.png)
+3) Fan-in results, move inputs, weights stay<br>
+![image](https://user-images.githubusercontent.com/77606152/147392074-9598326f-d0b6-4a0b-a427-ba0ea00730a6.png)
+Conclusion: <br>
+For design 1, the width of y may be bigger, however, it doesn't need any output path. For design 2, it can improve precision with effcient cost. For design 3, control logic straight forward, however if k is large it need many levels of adder tree.<br> <br>
+
+B. Without global data communication<br>
+1) Results stay, inputs and weights move in opposite directions.<br>
+![image](https://user-images.githubusercontent.com/77606152/147392150-825b093e-59ce-43b4-894c-38a97bdb53e1.png)
+2) Results stay , inputs and weights move in the same direction but at different speeds.<br>
+![image](https://user-images.githubusercontent.com/77606152/147392160-816a9c43-cb04-4077-9fda-f8b3e0d2d1b3.png)
+3) Weights stay, inputs and reslults move from opposite direction.<br>
+![image](https://user-images.githubusercontent.com/77606152/147392195-99a44f89-cd36-46d9-a07d-7eee97fb0791.png)
+4) Weights stay, inputs and reslults move from same direction, but with different speed.<br>
+![image](https://user-images.githubusercontent.com/77606152/147392205-30e855e0-2e89-468f-ae51-1e7bfc2e0439.png)
+Conclusion:<br>
+For design 1 and 2, extra output path is needed. 1 only achieves half computational efficiency.<br>
+#### Advantage of systolic array:
+1) Make multiple use of each input data.<br>
+2) Leverage compute concurrency. (Pipeline compute in many stages or multiprocess many result simultaneously)<br>
+3) Simple cell and simple data and contriol flow<br>
