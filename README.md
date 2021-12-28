@@ -180,3 +180,26 @@ For design 1 and 2, extra output path is needed. 1 only achieves half computatio
 1) Make multiple use of each input data.<br>
 2) Leverage compute concurrency. (Pipeline compute in many stages or multiprocess many result simultaneously)<br>
 3) Simple cell and simple data and contriol flow<br>
+
+## 2021.12.24
+### Paper: SuSy: A Programming Model for Productive Construction of High-Performance Systolic Arrays on FPGAs
+### Author:Yi-Hsiang Lai and Zhiru Zhang. <br> <br> Publish: 2020 ICCAD
+#### Motivation:
+   HLS users often have o perform micro-coding whichc need mch knowledge of low level hardware architectrue. And woould require a lot of manual effort to design a high performace systolic array design.<br>
+#### Contribution:
+1) A clean model is proposed, which seperate the temproal definition and spatial mapping.<br>
+2) An explict representation of space-time transformation is provided.<br>
+3) Many spatial optimization tehniques are provided, including vectorization, reuse buffer, data gatering and scattering for I/O. <br>
+4) Completed design flow.<br>
+#### Experiment:
+1) Platform: Intel Arria 10GX and Xilinx UV9P.<br>
+2) Baseline: Other works and the work only has space-loop transformation but without techniques.<br>
+3) Benchmark: GEMM (16bits)
+4) Result:<br>
+   A. Hardware utilization and performance improvement for each techique<br>
+   ![image](https://user-images.githubusercontent.com/77606152/147525804-5961d93c-5862-425a-bb38-c37a2d37419a.png)<br>
+   B. Comparison<br>
+   ![image](https://user-images.githubusercontent.com/77606152/147525829-7d69c26b-00ae-4097-8875-e84b046027d6.png)<br>
+#### Argument:
+1) Didn't discuss the method of deciding best choice(No analytic model, no any LP).<br>
+2) Didn't have much performance improvement.
