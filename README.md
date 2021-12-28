@@ -146,7 +146,7 @@ Reasons:<br>
 1) Didn't show the result of objective function acheived by these three schdulers.<br>
 2) Didn't consider DNN sparsity<br>
 
-## 2021.12.24
+## 2021.12.26
 ### Paper: Why Systolic Architectures? 
 ### Author:H.T. Kung. <br> <br> Publish: 1982 Computer.
 #### Motivation:
@@ -181,7 +181,7 @@ For design 1 and 2, extra output path is needed. 1 only achieves half computatio
 2) Leverage compute concurrency. (Pipeline compute in many stages or multiprocess many result simultaneously)<br>
 3) Simple cell and simple data and contriol flow<br>
 
-## 2021.12.24
+## 2021.12.27
 ### Paper: SuSy: A Programming Model for Productive Construction of High-Performance Systolic Arrays on FPGAs
 ### Author:Yi-Hsiang Lai and Zhiru Zhang. <br> <br> Publish: 2020 ICCAD
 #### Motivation:
