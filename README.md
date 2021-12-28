@@ -203,3 +203,29 @@ For design 1 and 2, extra output path is needed. 1 only achieves half computatio
 #### Argument:
 1) Didn't discuss the method of deciding best choice(No analytic model, no any LP).<br>
 2) Didn't have much performance improvement.
+
+## 2021.12.28
+### Paper: PolySA: Polyhedral-Based Systolic Array Auto-Compilation Systolic Arrays on FPGAs
+### Author: Jason Cong and Jie Wang. <br> <br> Publish: 2018 ICCAD
+#### Motivation:
+   HLS users often have o perform micro-coding whichc need mch knowledge of low level hardware architectrue. And woould require a lot of manual effort to design a high performace systolic array design.<br>
+#### Contribution:
+1) Built an end to end compilation framework for generating high performance systolic array.<br>
+2) Proposed a polyhedron framework based transformation front-end.<br>
+3) Used HLS as back-end. <br>
+4) Built an analytic model for choose optimal solution
+#### Experiment:
+1) Platform: Intel Xeon E7-4907CPU and Xilinx UV9P.<br>
+2) Baseline: Manually designed MM and CNN.<br>
+3) Benchmark: GEMM (16bits) 1024*1024*1024 and the third layer of VGG-16
+4) Result:<br>
+   A. Hardware utilization and performance comparison<br>
+   ![image](https://user-images.githubusercontent.com/77606152/147610284-6f8136dc-884c-481c-abcb-c813c850a09e.png)<br>
+   B. Analytic model error rate within 10%<br>
+   ![image](https://user-images.githubusercontent.com/77606152/147610368-acd0879c-5db7-4002-bcf1-d04205a2382b.png)<br>
+   C.Runtime result
+   ![image](https://user-images.githubusercontent.com/77606152/147610393-34c610b0-1993-42e2-8752-3377095e90f1.png)<br>
+#### Argument:
+1) 31% and 9% performance gap between automatical generated code and manually design of MM and CNN respectively<br>
+2) Didn't use any optimization for polyhedron transformation.
+3) Use iteratively exploring which lacks of scalability.
