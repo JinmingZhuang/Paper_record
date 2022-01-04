@@ -229,3 +229,34 @@ For design 1 and 2, extra output path is needed. 1 only achieves half computatio
 1) 31% and 9% performance gap between automatical generated code and manually design of MM and CNN respectively<br>
 2) Didn't use any optimization for polyhedron transformation.
 3) Use iteratively exploring which lacks of scalability.
+
+## 2022.1.3
+### Paper: Timeloop: A Systematic Approach to DNN Accelerator Evaluation
+### Author: Angshuman Parashar. <br> <br> Publish: 2019 ISPASS
+#### Motivation:
+   The large design space and lack of a systematic approach to evaluate the perfomance and energy efficiency of an accelerator make DNN accelerator design tend to be more of an art. Timeloop provides a evaluation tool (mapper + model) to evaluate different accelerators and guide deisgners to optimize their design.
+#### Contribution:
+1) Proposed a concise and unified way if describing the architecture of hardware and DNN structure.<br>
+2) Combined the exploration of a large design space witha mapper.<br>
+3) Provide a tool for fair comparsion among different accelerators. <br>
+4) Use exhaustive search (small design space) and heuristic (large design space) to find an optimal mapping solution.<br>
+#### Content:
+1) Mapper: Can do optimization under some constraint(dataflow, tiling, loop permutation, loop parallelism).<br>
+2) Model: 
+A. Count the access number of off-chip and on-chip access by using delta(set difference between consecutive iterations), for spatial loop it determines the data transfering pattern(Multicase or forwarding ...). For time loop, it determines data reuse.<br>
+B. Use TSMC 16nm model to calculate energy.
+#### Experiment:
+1) Accelerators: NVDLA-derived(Similar to NVDLA. sane dataflow and with spatial reduction) and Eyeriss.<br>
+2) Baseline: NVDLA-derived RTL design and Eyeris report.<br>
+3) Benchmark: 107 DNN workloads in DeepBench
+4) Result:<br>
+   A. Energy validation results for NVDLA-derived architecture<br>
+   ![image](https://user-images.githubusercontent.com/77606152/148003863-9593d683-1db8-4cbf-aea6-745f2c6f101d.png)<br>
+   B. Performance validation results for NVDLA-derived architecture<br>
+   ![image](https://user-images.githubusercontent.com/77606152/148004095-89e2e694-d87e-46b1-b5d6-0c7a632abc74.png)<br>
+   C.Normalized energy for AlexNet layers on a 256-PE Eyeriss architecture employing a row-stationary dataflow
+   ![image](https://user-images.githubusercontent.com/77606152/148004117-d5186bed-c892-45f3-9b74-1f127fb20421.png)<br>
+#### Argument:
+1) Need programmers intervene<br>
+2) The mapping algorithm is not good enough, for small size use exhaustive search, for big space using hurestic.
+3) Loop optimization limitation, loop tiling can only be factors of outer loop.
