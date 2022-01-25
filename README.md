@@ -297,3 +297,22 @@ B. Use TSMC 16nm model to calculate energy.
 #### Argument:
 1) The auto-tuner lacks of scalability since it uses exhaustive search.
 2) There are some restriction on their SIMD technique. Need to be Prallel loop or reduction loop which is 1D SIMD， not suitble for some 2D SIMD in Versal ACAP. 
+
+## 2022.1.24 (Reread)
+### Paper: Loop Parallelization in the Polytope Model<br>
+### Author: Lengauer,Christian. <br> <br> Publish: International Conference on Concurrency Theory. Springer, Berlin, Heidelberg, 1993
+#### Content:
+1) The paper introduced a model called polytope which can present perfect nested loops.<br>
+2) By using this model, the given loop can be transformed to the targeted interpretation.<br>
+3) It uses an example to show how to build a polytope model, transfrom it to a target polytope and at last transform the target polytope back to for-loop.<br>
+#### Detail process:
+1) Algorithm should be presented in SSA(Static single assignment) form.<br>
+2) Index space are presented as A*x <=b, in which A is the calulated from the lower and upper bound, b is the loop bound restriction, x is in element in index space.<br>
+3) We need to get the funtion t(x) and a(x) for new timeline and allocation. t(x) should keep the data dependency, and a(x) determine the paralleilism by keeping data dependency.<br> 
+![image](https://user-images.githubusercontent.com/77606152/150886351-7b65df53-b3cd-4cc6-80b0-ce73005fefd4.png)<br>
+4) T=[λ;σ];In the full dimensional case(space loop takes r-1 dimension and temproal loop takes single loop), T should be a squre matrix.<br>
+5) For Target space since Tx=y, AT(-1)y<=b, thus loop boundary gotten.<br>
+6) Target program: replace old index with new index.<br>
+#### To do list:
+1) Figure out how to get feasible t(x) and a(x) with specific objction, either minimum exetime or processor or memmory
+2) How to present systolic array in SSA format and use polyhedral model to solve it.
