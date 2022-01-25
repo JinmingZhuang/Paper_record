@@ -326,15 +326,15 @@ Although DeepSense (a multimodal NN consists of CNN and RNN) is designed for low
 1) Showcase the process of building a custimized hw/sw co-design based on xilinx-VI library and DPUs.
 Phase one: Train their own modified DeepSense NN to meet the requirement of DPU.<br>
 Phase two: Explore the DPU parameter settings based on their application and set up the platform via Vivado and Vitis.<br>
-Phase three: Use Vitis AI quantizer and compiler to generate the DPU instructions based on the DPU parameter. Manunally implement unsuported layer in host side.
-2) Exploring different settings on two B512 DPU to see the influence on latency, utilization and power consumpssion.
+Phase three: Use Vitis AI quantizer and compiler to generate the DPU instructions based on the DPU parameter. Manunally implement unsuported layer in host side.<br>
+2) Exploring different settings on two B512 DPU to see the influence on latency, utilization and power consumpssion.<br>
 #### Result:
-1)Baseline: Oringial paper which implemented on Nexus 5 with 2.3GHz CPU.
-2)Platform: Xilinx ZYNQ U96 + ZCU102
-3)Result:
-A.Latency(1 batch): U96 2.5X, ZCU 2.9X
-![image](https://user-images.githubusercontent.com/77606152/151075636-e0a488ae-0cf6-40ff-bfa8-b49ef3371cd8.png)
-B.Energy consumption per inference: U96 5.2X, ZCU 4.6X
-![image](https://user-images.githubusercontent.com/77606152/151075825-7e229540-c1a9-4d52-85af-ee40fb43d092.png)
-4)Insight:
-Low Power Mode should be used which can gate off DPU when in idle cycles without consuming any resource.
+1)Baseline: Oringial paper which implemented on Nexus 5 with 2.3GHz CPU.<br>
+2)Platform: Xilinx ZYNQ U96 + ZCU102.<br>
+3)Result:<br>
+A.Latency(1 batch): U96 2.5X, ZCU 2.9X<br>
+![image](https://user-images.githubusercontent.com/77606152/151075636-e0a488ae-0cf6-40ff-bfa8-b49ef3371cd8.png)<br>
+B.Energy consumption per inference: U96 5.2X, ZCU 4.6X<br>
+![image](https://user-images.githubusercontent.com/77606152/151075825-7e229540-c1a9-4d52-85af-ee40fb43d092.png)<br>
+4)Insight:<br>
+Low Power Mode should be used which can gate off DPU when in idle cycles without consuming any resource.<br>
