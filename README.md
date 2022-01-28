@@ -265,7 +265,7 @@ B. Use TSMC 16nm model to calculate energy.
 ### Paper: AutoSA: A Polyhedral Compiler for High-Performance Systolic Arrays on FPGA
 ### Author: Jie Wang, Licheng Guo and Jason Cong <br> <br> Publish: 2021 FPGA
 #### Motivation:
-1) Design systolic array require both high-level cahracteristics of the application andd hardware backgroud, thus makes it hard to be implemented.<br>
+1) Design systolic array require both high-level characteristics of the application andd hardware backgroud, thus makes it hard to be implemented.<br>
 2) Previous automatic synthesis work suffers from limited generality, performance and productivity.<br>
 #### Contribution:
 1) Provide an end-to-end compilation flow to generate systolic array from C to HLS C.<br>
@@ -321,7 +321,7 @@ B. Use TSMC 16nm model to calculate energy.
 ### Paper: Multimodal Neural Network Acceleration on a Hybrid CPU-FPGA Architecture: A Case Study<br>
 ### Author: M. T. Ajili and Y. Hara-Azum. <br> <br> Publish: IEEE Access 2022
 #### Issue/Motivation:
-Although DeepSense (a multimodal NN consists of CNN and RNN) is designed for low-power mobile and IoT devices, it still it is still unable to meet these devices’ power requirements. Thus they aim to use FPGA SOC(YNQ, U96 and ZCU102) to achieve high energy efficiency.
+Although DeepSense (a multimodal NN consists of CNN and RNN) is designed for low-power mobile and IoT devices, it is still unable to meet these devices' power requirements. Thus they aim to use FPGA SOC(YNQ, U96 and ZCU102) to achieve high energy efficiency.
 #### Content:
 1) Showcase the process of building a custimized hw/sw co-design based on xilinx-VI library and DPUs.
 Phase one: Train their own modified DeepSense NN to meet the requirement of DPU.<br>
@@ -338,3 +338,28 @@ B.Energy consumption per inference: U96 5.2X, ZCU 4.6X<br>
 ![image](https://user-images.githubusercontent.com/77606152/151075825-7e229540-c1a9-4d52-85af-ee40fb43d092.png)<br>
 4)Insight:<br>
 Low Power Mode should be used which can gate off DPU when in idle cycles without consuming any resource.<br>
+
+## 2022.1.27
+### Paper: Halide: A Language and Compiler for Optimizing Parallelism, Locality, and Recomputation in Image Processing Pipelines<br>
+### Author: Jonathan Ragan-Kelley and et.cl. <br> <br> Publish: PLDI'13
+#### Issue/Motivation:
+How to automatically design a schedule that have good parallelism, locality and low recomputation for stencil applications
+#### Content:
+1) Built a systematic model of the tradeoffs between Parallelism, Locality, and Recomputation.<br>
+2) Process: 
+A. Autotuner will stochastically search the space of valid schedules to find a high performance implementation.<br>
+B. Lowering, bound inference: Transform schedule and algorithm to for-loop.<br>
+C. Sliding window optimization: Storage reuse between higher loop and lower loop.<br>
+D. Flatten: Flatten multidiension load/store to 1d.
+E. Vectorization and Unroll.
+F. Backend: Use LLVM for low-level code generation.
+![image](https://user-images.githubusercontent.com/77606152/151494264-375b4fba-cdc5-4303-bf0a-c6fb4a5ed37a.png)<br>
+#### Result:
+1) Baseline: Expert tuned C code compilerd by GCC 4.7.<br>
+2) Platform: Xeon W3520 X86 CPU and Tesla C2070 GPU.<br>
+3) Benchmark: Blur, Bilateral grid, Camera pipeline, et.cl
+4) Result:<br>
+A. Latency x86<br>
+![image](https://user-images.githubusercontent.com/77606152/151495644-37c94a84-d7b8-4054-af4f-dea10e80585c.png)<br>
+B. Latency GPU<br>
+![image](https://user-images.githubusercontent.com/77606152/151495723-a88b06c0-6b57-4a62-94a8-c6a17e4b773d.png)<br>
