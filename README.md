@@ -274,7 +274,7 @@ B. Use TSMC 16nm model to calculate energy.
 #### Content:
 1) Computation :Polyhedron model. Space-time transformation: Array-partitioning, Latency hiding, SIMD.<br>
 2) Communication: Based on data dependency, deciding I/O network to send data.
-3) Auto_tuning: Randomly select 16 feasible solution minimize latency.
+3) Auto_tuning: Sapmle 16 eample to build resource model and use loop count to model latency. Then exhaustively search all the possible solution.<br>
 #### Experiment:
 1) Platform: xilinx U250,300MHz(FP32,INT8), 250MHz(int16).<br>
 2) Baseline: PolySA, Susy et.cl.<br>
