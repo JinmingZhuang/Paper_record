@@ -363,3 +363,28 @@ A. Latency x86<br>
 ![image](https://user-images.githubusercontent.com/77606152/151495644-37c94a84-d7b8-4054-af4f-dea10e80585c.png)<br>
 B. Latency GPU<br>
 ![image](https://user-images.githubusercontent.com/77606152/151495723-a88b06c0-6b57-4a62-94a8-c6a17e4b773d.png)<br>
+
+## 2022.1.29
+### Paper: SODA: Stencil with Optimized Dataflow Architecture<br>
+### Author: Yuze Chi, Jason Cong, Peng Wei, Peipei Zhou. <br> Publish: ICCAD'18
+#### Issue/Motivation:
+Find optimal solution for stencil applications and automatically implement it. 
+#### Content:
+1) Presented the microarchitecture and methodology for stencil application.<br>
+A. Achived minimum off-chip data transfer, since data is only loaded once.
+B. Under cerntain unroll factir K, minimum on-chip buffer is used.
+2) Performance and resouce utilization model is built for design exploration.（Given unroll factor K, find maximum thoughput）
+4) Process: 
+A. Only SODA DSL kernel is needed. 
+![image](https://user-images.githubusercontent.com/77606152/151687168-657baa4c-4ade-4471-9bf2-a7dc5216d5a0.png)<br>
+#### Result:
+1) Baseline: CPU(Use Halide), other framework.<br>
+2) Platform: XCKU060 FPGA, Intrel Xeon E5-2620 v3 CPs.<br>
+3) Benchmark: SOBEL 2D, DENOISE 2D, DENOISE 3D, JACOBI 2D and et.cl
+4) Result:<br>
+A. Performance Model Accuracy<br>
+![image](https://user-images.githubusercontent.com/77606152/151687263-94474d5d-40b8-486c-bc87-636e9ea95ac4.png)<br>
+B. Throughput<br>
+![image](https://user-images.githubusercontent.com/77606152/151687275-b65ee053-7b3b-48f7-a08e-0fb34d6adf7d.png)<br>
+#### Argument:
+1) Design space exploration is not complete, since k is given by user. What if user want to achieve maximized throughput on a specific platform. How to define K?
