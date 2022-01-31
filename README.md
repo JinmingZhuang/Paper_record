@@ -321,9 +321,9 @@ B. Use TSMC 16nm model to calculate energy.
 ### Paper: Multimodal Neural Network Acceleration on a Hybrid CPU-FPGA Architecture: A Case Study<br>
 ### Author: M. T. Ajili and Y. Hara-Azum. <br> <br> Publish: IEEE Access 2022
 #### Issue/Motivation:
-Although DeepSense (a multimodal NN consists of CNN and RNN) is designed for low-power mobile and IoT devices, it is still unable to meet these devices' power requirements. Thus they aim to use FPGA SOC(YNQ, U96 and ZCU102) to achieve high energy efficiency.
+Although DeepSense (a multimodal NN consists of CNN and RNN) is designed for low-power mobile and IoT devices, it is still unable to meet these devices' power requirements. Thus they aim to use FPGA SOC(YNQ, U96 and ZCU102) to achieve high energy efficiency.<br>
 #### Content:
-1) Showcase the process of building a custimized hw/sw co-design based on xilinx-VI library and DPUs.
+1) Showcase the process of building a custimized hw/sw co-design based on xilinx-VI library and DPUs.<br>
 Phase one: Train their own modified DeepSense NN to meet the requirement of DPU.<br>
 Phase two: Explore the DPU parameter settings based on their application and set up the platform via Vivado and Vitis.<br>
 Phase three: Use Vitis AI quantizer and compiler to generate the DPU instructions based on the DPU parameter. Manunally implement unsuported layer in host side.<br>
@@ -341,23 +341,23 @@ Low Power Mode should be used which can gate off DPU when in idle cycles without
 
 ## 2022.1.27
 ### Paper: Halide: A Language and Compiler for Optimizing Parallelism, Locality, and Recomputation in Image Processing Pipelines<br>
-### Author: Jonathan Ragan-Kelley and et.cl. <br> <br> Publish: PLDI'13
-#### Issue/Motivation:
-How to automatically design a schedule that have good parallelism, locality and low recomputation for stencil applications
-#### Content:
+### Author: Jonathan Ragan-Kelley and et.cl. <br> <br> Publish: PLDI'13<br>
+#### Issue/Motivation:<br>
+How to automatically design a schedule that have good parallelism, locality and low recomputation for stencil applications<br>
+#### Content:<br>
 1) Built a systematic model of the tradeoffs between Parallelism, Locality, and Recomputation.<br>
 2) Process: 
 A. Autotuner will stochastically search the space of valid schedules to find a high performance implementation.<br>
 B. Lowering, bound inference: Transform schedule and algorithm to for-loop.<br>
 C. Sliding window optimization: Storage reuse between higher loop and lower loop.<br>
-D. Flatten: Flatten multidiension load/store to 1d.
-E. Vectorization and Unroll.
-F. Backend: Use LLVM for low-level code generation.
+D. Flatten: Flatten multidiension load/store to 1d.<br>
+E. Vectorization and Unroll.<br>
+F. Backend: Use LLVM for low-level code generation.<br>
 ![image](https://user-images.githubusercontent.com/77606152/151494264-375b4fba-cdc5-4303-bf0a-c6fb4a5ed37a.png)<br>
 #### Result:
 1) Baseline: Expert tuned C code compilerd by GCC 4.7.<br>
 2) Platform: Xeon W3520 X86 CPU and Tesla C2070 GPU.<br>
-3) Benchmark: Blur, Bilateral grid, Camera pipeline, et.cl
+3) Benchmark: Blur, Bilateral grid, Camera pipeline, et.cl<br>
 4) Result:<br>
 A. Latency x86<br>
 ![image](https://user-images.githubusercontent.com/77606152/151495644-37c94a84-d7b8-4054-af4f-dea10e80585c.png)<br>
@@ -368,14 +368,14 @@ B. Latency GPU<br>
 ### Paper: SODA: Stencil with Optimized Dataflow Architecture<br>
 ### Author: Yuze Chi, Jason Cong, Peng Wei, Peipei Zhou. <br> Publish: ICCAD'18
 #### Issue/Motivation:
-Find optimal solution for stencil applications and automatically implement it. 
+Find optimal solution for stencil applications and automatically implement it. <br>
 #### Content:
 1) Presented the microarchitecture and methodology for stencil application.<br>
-A. Achived minimum off-chip data transfer, since data is only loaded once.
-B. Under cerntain unroll factir K, minimum on-chip buffer is used.
-2) Performance and resouce utilization model is built for design exploration.（Given unroll factor K, find maximum thoughput）
-4) Process: 
-A. Only SODA DSL kernel is needed. 
+A. Achived minimum off-chip data transfer, since data is only loaded once.<br>
+B. Under cerntain unroll factir K, minimum on-chip buffer is used.<br>
+2) Performance and resouce utilization model is built for design exploration.（Given unroll factor K, find maximum thoughput）<br>
+4) Process: <br>
+A. Only SODA DSL kernel is needed. <br>
 ![image](https://user-images.githubusercontent.com/77606152/151687168-657baa4c-4ade-4471-9bf2-a7dc5216d5a0.png)<br>
 #### Result:
 1) Baseline: CPU(Use Halide), other framework.<br>
@@ -387,4 +387,18 @@ A. Performance Model Accuracy<br>
 B. Throughput<br>
 ![image](https://user-images.githubusercontent.com/77606152/151687275-b65ee053-7b3b-48f7-a08e-0fb34d6adf7d.png)<br>
 #### Argument:
-1) Design space exploration is not complete, since k is given by user. What if user want to achieve maximized throughput on a specific platform. How to define K?
+1) Design space exploration is not complete, since k is given by user. What if user want to achieve maximized throughput on a specific platform. How to define K?<br>
+
+## 2022.1.29
+### Paper: Domain Specific Hardware Accelerators<br>
+### Author: BY WILLIAM J. DALLY, YATISH TURAKHIA, AND SONG HAN. <br> Publish: COMMUNICATIONS OF THE ACM'20
+#### Content:
+1) Why DSAs?<br>
+Moore’s Law and Dennard scaling have largely ended, which slows the scaling of performance and efficiency of processors.<br>
+2) How DSAs help?
+A. Specialization: Specialized logic takes minimum cycles. Specialized data type helps locality, communication and performace.<br>
+B. Parallelism: By specializing the application to a given domain, the synthronization and communication between PEs are greatly simplified, which makes parallelism much easier.<br>
+C. Local and optimized memory: The area and power are both dominated by memory. Optimized memory structure and scheduler helps.
+#### Guidance:
+1) Software and hardware codesign: Algorithm should be hardware friendly, for example, Deepcompression achieves 30x model reduce however the overhead of sparse method makes these algorithm uninteresting except for memory compression.
+2) Automation is neded: Flexible and programmable DSL can make DSA an excellent ecosystem. 
