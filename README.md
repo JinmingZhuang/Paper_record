@@ -366,7 +366,7 @@ B. Latency GPU<br>
 
 ## 2022.1.29
 ### Paper: SODA: Stencil with Optimized Dataflow Architecture<br>
-### Author: Yuze Chi, Jason Cong, Peng Wei, Peipei Zhou. <br> Publish: ICCAD'18
+### Author: Yuze Chi, Jason Cong, Peng Wei, Peipei Zhou. <br> Publish: ICCAD'18<br>
 #### Issue/Motivation:
 Find optimal solution for stencil applications and automatically implement it. <br>
 #### Content:
@@ -391,14 +391,37 @@ B. Throughput<br>
 
 ## 2022.1.29
 ### Paper: Domain Specific Hardware Accelerators<br>
-### Author: BY WILLIAM J. DALLY, YATISH TURAKHIA, AND SONG HAN. <br> Publish: COMMUNICATIONS OF THE ACM'20
-#### Content:
+### Author: BY WILLIAM J. DALLY, YATISH TURAKHIA, AND SONG HAN. <br> Publish: COMMUNICATIONS OF THE ACM'20<br>
+#### Content:<br>
 1) Why DSAs?<br>
 Moore’s Law and Dennard scaling have largely ended, which slows the scaling of performance and efficiency of processors.<br>
-2) How DSAs help?
+2) How DSAs help?<br>
 A. Specialization: Specialized logic takes minimum cycles. Specialized data type helps locality, communication and performace.<br>
 B. Parallelism: By specializing the application to a given domain, the synthronization and communication between PEs are greatly simplified, which makes parallelism much easier.<br>
-C. Local and optimized memory: The area and power are both dominated by memory. Optimized memory structure and scheduler helps.
+C. Local and optimized memory: The area and power are both dominated by memory. Optimized memory structure and scheduler helps.<br>
 #### Guidance:
-1) Software and hardware codesign: Algorithm should be hardware friendly, for example, Deepcompression achieves 30x model reduce however the overhead of sparse method makes these algorithm uninteresting except for memory compression.
-2) Automation is neded: Flexible and programmable DSL can make DSA an excellent ecosystem. 
+1) Software and hardware codesign: Algorithm should be hardware friendly, for example, Deepcompression achieves 30x model reduce however the overhead of sparse method makes these algorithm uninteresting except for memory compression.<br>
+2) Automation is neded: Flexible and programmable DSL can make DSA an excellent ecosystem. <br>
+
+## 2022.2.1
+### Paper: LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation<br>
+### Author: Chris Lattner and Vikram Adve. <br> Publish: CGO'2004
+#### Content:
+1) An Novel Code Representation<br>
+A. A low level language-independent type information: Supportsa broad class of high-level informations on low-level code and provides data and operation implementation behaviours for all the stage optimization .<br>
+B. Explicit Memory Allocation which means no implicit accesses to memory will occur.<br>
+C. Explicit low-level machine independent function call and exception handling mechanism is proposed.<br>
+2) A Compiler Design<br>
+A. Persistent program information:LLVM IR.<br>
+B. Offline code generation.<br>
+C. Combine Runtime and ofline optimization: Profiling information at run-time in the field so that it is representative of actual users, enabling profile-guided transformations both at run-time and in idle time.<br>
+D. Transparent runtime model: Any language can be compiled by it.<br>
+![image](https://user-images.githubusercontent.com/77606152/152232579-426ea8b9-1b6f-4b82-ac1e-da3c518bbaeb.png)<br>
+#### Experiment Result:
+1) Platform: Intel Xeon processor.<br>
+2) Speed compared with GCC3.3.(DGE,DAE and inline are interprocedural optimizations work on the whole program at link-time)<br>
+![image](https://user-images.githubusercontent.com/77606152/152233948-ac5168fb-2e54-4f4c-ac60-b30a68eaca30.png)
+#### Why LLVM or What's the advantage:
+1) It compiles the source code to an intermediate representation, thus a given language can be compiled to LLVM and do optimization in this level regardless of backend.<br>
+2) Since there's a uniformed IR, the different languages can work on same back-end.<br>
+![image](https://user-images.githubusercontent.com/77606152/152234902-e9ca8193-4f5e-44a4-be05-2ec1942cff7e.png)
