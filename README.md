@@ -425,3 +425,25 @@ D. Transparent runtime model: Any language can be compiled by it.<br>
 1) It compiles the source code to an intermediate representation, thus a given language can be compiled to LLVM and do optimization in this level regardless of backend.<br>
 2) Since there's a uniformed IR, the different languages can work on same back-end.<br>
 ![image](https://user-images.githubusercontent.com/77606152/152234902-e9ca8193-4f5e-44a4-be05-2ec1942cff7e.png)
+
+## 2022.2.3
+### Paper: A singular loop transformation framework based on non-singular matrices<br>
+### Author: Li, Wei, and Keshav Pingali. <br> Publish: International Workshop on Languages and Compilers for Parallel Computing. 1992<br>
+#### Content:
+1) Overview: Introduced a complete procedure for space-time transformation by using linear representation.<br>
+2) Procedure: <br>
+A. Loop transformation:<br> 
+Use vector to present loop space: <br>
+```sh
+Sold = [ 0, 1 ]    in which [ 0 ]  represents j loop and [ 1 ] represents i loop   
+       [ 1, 0 ]             [ 1 ]                        [ 0 ]
+D    = [ 3, 2 ]^T  refers to the dependency
+Sold * T = Snew
+T * D >=0, at least one of the row is greater than 0
+for i=1:3
+  for j=1:3
+    A[i,j]=A[i-3,j-2];
+```
+If the iteration space of Snew is sparse, a non-singular T can always be decomposed to H and U where H is a lower triangular matrix with positive diagonal elements and U is a unimodular matrix U. U * Sold is always a dense space which keeps the lexicographical order.<br>
+B. How to decide T:<br>
+Decide what is the objection. For example, if we want to unroll the outer loop, let P=T(1,:) = (2 , -3), thus T * D (1,:) = 0, which means there's no dependency anymore for outer loop. To decide the next row of T, we use ek= (1,0) and do a projection to make sure its independent with the previous decided row in T that is (2, -3). The new row should be y= Q * (ek) where Q =(I - P(P^TP)^(-1)P^T)<br>
