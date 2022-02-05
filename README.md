@@ -434,6 +434,7 @@ D. Transparent runtime model: Any language can be compiled by it.<br>
 2) Procedure: <br>
 A. Loop transformation:<br> 
 Use vector to present loop space: <br>
+If the iteration space of Snew is sparse, a non-singular T can always be decomposed to H and U where H is a lower triangular matrix with positive diagonal elements and U is a unimodular matrix U. U * Sold is always a dense space which keeps the lexicographical order.<br>
 ```sh
 Sold = [ 0, 1 ]    in which [ 0 ]  represents j loop and [ 1 ] represents i loop   
        [ 1, 0 ]             [ 1 ]                        [ 0 ]
@@ -444,6 +445,5 @@ for i=1:3
   for j=1:3
     A[i,j]=A[i-3,j-2];
 ```
-If the iteration space of Snew is sparse, a non-singular T can always be decomposed to H and U where H is a lower triangular matrix with positive diagonal elements and U is a unimodular matrix U. U * Sold is always a dense space which keeps the lexicographical order.<br>
 B. How to decide T:<br>
 Decide what is the objection. For example, if we want to unroll the outer loop, let P=T(1,:) = (2 , -3), thus T * D (1,:) = 0, which means there's no dependency anymore for outer loop. To decide the next row of T, we use ek= (1,0) and do a projection to make sure its independent with the previous decided row in T that is (2, -3). The new row should be y= Q * (ek) where Q =(I - P(P^TP)^(-1)P^T)<br>
