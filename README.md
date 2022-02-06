@@ -314,7 +314,7 @@ B. Use TSMC 16nm model to calculate energy.
 5) For Target space since Tx=y, AT(-1)y<=b, thus loop boundary gotten.<br>
 6) Target program: replace old index with new index.<br>
 #### To do list:
-1) Figure out how to get feasible t(x) and a(x) with specific objction, either minimum exetime or processor or memmory
+1) Figure out how to get feasible t(x) and a(x) with specific objective function, either minimum exe time or processor number or memory usage.
 2) How to present systolic array in SSA format and use polyhedral model to solve it.
 
 ## 2022.1.25
