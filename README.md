@@ -467,3 +467,26 @@ B. Performance: Compared with Halide-HLS<br>
 ![image](https://user-images.githubusercontent.com/77606152/152698134-d03f96f9-010a-4269-8fee-e55147961fd0.png)<br>
 C. FPGA vs CPU: <br>
 ![image](https://user-images.githubusercontent.com/77606152/152698174-8c60bdc2-24f7-4add-b58a-0a94b258710c.png)<br>
+
+## 2022.2.5
+### Paper: HeteroCL: A Multi-Paradigm Programming Infrastructure for Software-Defined Reconfigurable Computing<br>
+### Author: Yi-Hsiang Lai, Yuze Chi, Jason Cong and Zhiru Zhang. <br> Publish: FPGA'2019<br>
+#### Motivation:
+Increase the programability for FPGA.<br>
+#### Content:
+1) A novel DSL is proposed which blends  declarative symbolic expressions with imperative code.<br>
+2) It seperates algorithm and schedule to improve portability.<br>
+3) Hardware custimizations including compute, data types and memory architectures are supported for performance optimization.<br>
+4) Multiple backends are supoorted CPU, PolySA, SODA, Merlin compiler.<br>
+5) Flow: HeteroCL -> Extended Halide IR -> DSL/IR (Poly,SODA, Merlin, LLVM) -> FPGA/CPU<br>
+#### Experiment:
+1) Platform: AWS EC2 f1.2xlarge instance 8 vCPU cores; Xilinx Virtex Ultra-Scale+™ VU9P FPGA @250MHz.<br>
+2) Benchmark: KNN-based digit recognition, K-means, stencil, GEMM, CNN et.cl<br>
+3) Baseline: CPU backend. MKL and TVM for systolic applications.
+4) Result:<br>
+A. Speedup over CPU by using Merlin backend<br>
+![image](https://user-images.githubusercontent.com/77606152/152705279-c4552a81-8b05-4cf3-b622-f83f7ffdbe40.png)<br>
+B. Speedup of stencil applicatoins by using SODA backend: quti:16bits fixed<br>
+![image](https://user-images.githubusercontent.com/77606152/152705331-e826759a-6b40-4145-ad68-187c9b3dad35.png)<br>
+C. Speedup of systolic array applicatoins by using PolySA backend: TVM[6], MKL[20]<br>
+![image](https://user-images.githubusercontent.com/77606152/152705369-fb61b676-24a7-4c4e-bef6-d94ff6631352.png)<br>
