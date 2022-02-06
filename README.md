@@ -447,3 +447,23 @@ for i=1:3
 ```
 B. How to decide T:<br>
 Decide what is the objection. For example, if we want to unroll the outer loop, let P=T(1,:) = (2 , -3), thus T * D (1,:) = 0, which means there's no dependency anymore for outer loop. To decide the next row of T, we use ek= (1,0) and do a projection to make sure its independent with the previous decided row in T that is (2, -3). The new row should be y= Q * (ek) where Q =(I - P(P^TP)^(-1)P^T)<br>
+
+## 2022.2.4
+### Paper: HeteroHalide: From image processing DSL to efficient FPGA acceleration<br>
+### Author: Li, Jiajie, Yuze Chi, and Jason Cong. <br> Publish: FPGA'2020<br>
+#### Motivation:
+Exsisting framework from Halide to FPGA is lack of portability (Only supports  xilinx ZYNQ FPGA) and maintainability (specific microarchitecture).<br>
+#### Content:
+1) Built an easy-to-use compile flow from Halide to FPGA.<br>
+2) Use HeteroCL as IR, SODA, PolySA and Merlin Compiler as backend.<br>
+3) Made some extensions on Halide Schedules. (Based on schedule, Halide will generate IR directly. However, in HeteroCL some schedules are needed to generate HLS code, eg.unroll,parallel)<br>
+#### Experiment:
+1) Platform: CPU: Xeon 2680v4 x2, 28 cores, 14nm, f=2.4GHz; Xilinx Vu9P: 16nm, f=250MHz; Xilinx ZYNQ7020.<br>
+2) Benchmark: Harris, Gaussian, GEMM, K-Means et.cl<br>
+3) Result:<br>
+A. Productivity: Lines of code compared with xfOpenCV<br>
+![image](https://user-images.githubusercontent.com/77606152/152698059-1aba02e9-f50a-41f5-abe6-2df266286d20.png)<br>
+B. Performance: Compared with Halide-HLS<br>
+![image](https://user-images.githubusercontent.com/77606152/152698134-d03f96f9-010a-4269-8fee-e55147961fd0.png)<br>
+C. FPGA vs CPU: <br>
+![image](https://user-images.githubusercontent.com/77606152/152698174-8c60bdc2-24f7-4add-b58a-0a94b258710c.png)<br>
