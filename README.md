@@ -329,9 +329,10 @@ Phase two: Explore the DPU parameter settings based on their application and set
 Phase three: Use Vitis AI quantizer and compiler to generate the DPU instructions based on the DPU parameter. Manunally implement unsuported layer in host side.<br>
 2) Exploring different settings on two B512 DPU to see the influence on latency, utilization and power consumpssion.<br>
 #### Result:
-1)Baseline: Oringial paper which implemented on Nexus 5 with 2.3GHz CPU.<br>
-2)Platform: Xilinx ZYNQ U96 + ZCU102.<br>
-3)Result:<br>
+1) Baseline: Oringial paper which implemented on Nexus 5 with 2.3GHz CPU.<br>
+2) Platform: Xilinx ZYNQ U96 + ZCU102 + Raspberry Pi 3 model B.<br>
+3) Benchmark: Deepsense
+4) Result:<br>
 A.Latency(1 batch): U96 2.5X, ZCU 2.9X<br>
 ![image](https://user-images.githubusercontent.com/77606152/151075636-e0a488ae-0cf6-40ff-bfa8-b49ef3371cd8.png)<br>
 B.Energy consumption per inference: U96 5.2X, ZCU 4.6X<br>
