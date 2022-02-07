@@ -347,7 +347,8 @@ Low Power Mode should be used which can gate off DPU when in idle cycles without
 How to automatically design a schedule that have good parallelism, locality and low recomputation for stencil applications<br>
 #### Content:<br>
 1) Built a systematic model of the tradeoffs between Parallelism, Locality, and Recomputation.<br>
-2) Process: 
+2) An algorithm scheduling seperated representation is proposed. 
+3) Compile Process: 
 A. Autotuner will stochastically search the space of valid schedules to find a high performance implementation.<br>
 B. Lowering, bound inference: Transform schedule and algorithm to for-loop.<br>
 C. Sliding window optimization: Storage reuse between higher loop and lower loop.<br>
