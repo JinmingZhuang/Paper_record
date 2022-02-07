@@ -403,7 +403,7 @@ B. Parallelism: By specializing the application to a given domain, the synthroni
 C. Local and optimized memory: The area and power are both dominated by memory. Optimized memory structure and scheduler helps.<br>
 #### Guidance:
 1) Software and hardware codesign: Algorithm should be hardware friendly, for example, Deepcompression achieves 30x model reduce however the overhead of sparse method makes these algorithm uninteresting except for memory compression.<br>
-2) Automation is neded: Flexible and programmable DSL can make DSA an excellent ecosystem. <br>
+2) Automation is needed: Flexible and programmable DSL can make DSA an excellent ecosystem. <br>
 
 ## 2022.2.1
 ### Paper: LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation<br>
