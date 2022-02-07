@@ -372,10 +372,10 @@ B. Latency GPU<br>
 Find optimal solution for stencil applications and automatically implement it. <br>
 #### Content:
 1) Presented the microarchitecture and methodology for stencil application.<br>
-A. Achived minimum off-chip data transfer, since data is only loaded once.<br>
-B. Under cerntain unroll factir K, minimum on-chip buffer is used.<br>
-2) Performance and resouce utilization model is built for design exploration.（Given unroll factor K, find maximum thoughput）<br>
-4) Process: <br>
+A. Achieved minimum off-chip data transfer, since data is only loaded once.<br>
+B. Under certain unroll factor K or PE number, minimum on-chip buffer is used.<br>
+2) Performance and resource utilization model is built for design exploration.（Given unroll factor K, find maximum throughput）<br>
+3) Automatic framework: <br>
 A. Only SODA DSL kernel is needed. <br>
 ![image](https://user-images.githubusercontent.com/77606152/151687168-657baa4c-4ade-4471-9bf2-a7dc5216d5a0.png)<br>
 #### Result:
@@ -383,7 +383,7 @@ A. Only SODA DSL kernel is needed. <br>
 2) Platform: XCKU060 FPGA, Intrel Xeon E5-2620 v3 CPs.<br>
 3) Benchmark: SOBEL 2D, DENOISE 2D, DENOISE 3D, JACOBI 2D and et.cl
 4) Result:<br>
-A. Performance Model Accuracy<br>
+A. Model Accuracy<br>
 ![image](https://user-images.githubusercontent.com/77606152/151687263-94474d5d-40b8-486c-bc87-636e9ea95ac4.png)<br>
 B. Throughput<br>
 ![image](https://user-images.githubusercontent.com/77606152/151687275-b65ee053-7b3b-48f7-a08e-0fb34d6adf7d.png)<br>
