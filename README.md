@@ -410,13 +410,13 @@ C. Local and optimized memory: The area and power are both dominated by memory. 
 ### Author: Chris Lattner and Vikram Adve. <br> Publish: CGO'2004
 #### Content:
 1) An Novel Code Representation<br>
-A. A low level language-independent type information: Supportsa broad class of high-level informations on low-level code and provides data and operation implementation behaviours for all the stage optimization .<br>
-B. Explicit Memory Allocation which means no implicit accesses to memory will occur.<br>
+A. A low level language-independent type system: Every SSA register and explicit memory object has an associated type, and all operations obey strict type rules. Besides, It supports a broad class of high-level informations on low-level code and provides data and operation implementation behaviours for all the stage optimization.<br>
+B. Explicit Memory Allocation: malloc, free and alloca are provided for explicit memory allocation.<br>
 C. Explicit low-level machine independent function call and exception handling mechanism is proposed.<br>
 2) A Compiler Design<br>
-A. Persistent program information:LLVM IR.<br>
+A. Persistent program information:LLVM IR(Exsist during the life time of the program).<br>
 B. Offline code generation.<br>
-C. Combine Runtime and ofline optimization: Profiling information at run-time in the field so that it is representative of actual users, enabling profile-guided transformations both at run-time and in idle time.<br>
+C. Combine Runtime and offline optimization: Profiling information at run-time in the field so that it is representative of actual users, enabling profile-guided transformations both at run-time and in idle time off-line.<br>
 D. Transparent runtime model: Any language can be compiled by it.<br>
 ![image](https://user-images.githubusercontent.com/77606152/152232579-426ea8b9-1b6f-4b82-ac1e-da3c518bbaeb.png)<br>
 #### Experiment Result:
