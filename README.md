@@ -458,7 +458,7 @@ Exsisting framework from Halide to FPGA is lack of portability (Only supports  x
 #### Content:
 1) Built an easy-to-use compile flow from Halide to FPGA.<br>
 2) Use HeteroCL as IR, SODA, PolySA and Merlin Compiler as backend.<br>
-3) Made some extensions on Halide Schedules. (Based on schedule, Halide will generate IR directly. However, in HeteroCL some schedules are needed to generate HLS code, eg.unroll,parallel)<br>
+3) Made some extensions on Halide Schedules. Based on schedule, Halide will generate IR directly. However, to generate efficient accelerators on FPGA, some schedules  should be used in HeteroCL level, thus extensions  are needed.<br>
 #### Experiment:
 1) Platform: CPU: Xeon 2680v4 x2, 28 cores, 14nm, f=2.4GHz; Xilinx Vu9P: 16nm, f=250MHz; Xilinx ZYNQ7020.<br>
 2) Benchmark: Harris, Gaussian, GEMM, K-Means et.cl<br>
@@ -474,7 +474,7 @@ C. FPGA vs CPU: <br>
 ### Paper: HeteroCL: A Multi-Paradigm Programming Infrastructure for Software-Defined Reconfigurable Computing<br>
 ### Author: Yi-Hsiang Lai, Yuze Chi, Jason Cong and Zhiru Zhang. <br> Publish: FPGA'2019<br>
 #### Motivation:
-Increase the programability for FPGA.<br>
+FPGA has advantage in latency and power efficiency over CPU and GPU. And it is also helpful in doing prototype verification  for DSAs on FPGA. However,  in some extend it lacks programmability.<br>
 #### Content:
 1) A novel DSL is proposed which blends  declarative symbolic expressions with imperative code.<br>
 2) It seperates algorithm and schedule to improve portability.<br>
