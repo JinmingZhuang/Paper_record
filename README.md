@@ -492,3 +492,35 @@ B. Speedup of stencil applicatoins by using SODA backend: quti:16bits fixed<br>
 ![image](https://user-images.githubusercontent.com/77606152/152705331-e826759a-6b40-4145-ad68-187c9b3dad35.png)<br>
 C. Speedup of systolic array applicatoins by using PolySA backend: TVM[6], MKL[20]<br>
 ![image](https://user-images.githubusercontent.com/77606152/152705369-fb61b676-24a7-4c4e-bef6-d94ff6631352.png)<br>
+
+
+## 2022.2.8
+### Paper: DNNBuilder: an Automated Tool for Building High-Performance DNN Hardware Accelerators for FPGAs<br>
+### Author: Xiaofan Zhang, Deming Chen and et.cl. <br> Publish: ICCAD’18<br>
+#### Motivation:
+Edge applications usually ask for real-time processing of streaming inputs that limit the FPGA’s ability to batch the data for increased throughput, as the additional latency incurred by batch process can exceed what is allowed by real-time performance requirements. Besides, it is challenging for edge device to process high-definition (HD) images/videos, which generates higher requirements for feature map storage and computation power. <br>
+#### Content:
+1) An end-to-end Framework(Caffe, Tensorflow) to FPGA automation tool is proposed.<br>
+   A. Do training on exsisting Framework and generate model(.prototxt adn .caffemodel)
+   B. Pass the model to Generate process. Parsing:Get model information. Optimization: Decide best schdule for low latency within hardware limitation. Construction: Generate pre-build RTL based on the parameter gotten from last step.<br>
+   ![image](https://user-images.githubusercontent.com/77606152/153262470-520f2086-14ab-435f-a96c-465e4baa4ac0.png)
+2) Flexible quantilization scheme: When the off-chip bandwidth exceeds the limitation(FC layer with low comm to comp ratio), it can retrain the model with lower bit precision.<br>
+3) A fine-grained layer-based pipeline arhcitecture and a column based cache scheme for low latency and less hardware utilization.<br>
+   A. Micro architecture: 4x3x3 (inc*h*w)infmap   4*2*2*6 (inc*R*S*outc) kernel<br>
+   ![image](https://user-images.githubusercontent.com/77606152/153263926-3ce96b3e-286f-4c8c-a3e2-40a071d1c744.png)<br>
+   B. Column based line buffer <br>
+   ![image](https://user-images.githubusercontent.com/77606152/153263984-4834dc72-c7bc-4a13-8809-6d5a9ba8a046.png)<br>
+   C. Fine-grained pipelining scheme<br>
+   ![image](https://user-images.githubusercontent.com/77606152/153264180-ae67543c-f606-47be-9138-b5dbeaad2164.png)<br>
+4) An automatic resource allocatin management: First decide the DSP utilization, then balance the commnication and computation be allocating enough on-chip buffer.<br>
+#### Experiment:
+1) Platform: Xilinx XC7Z045 @200MHz, Xilinx KU115 220-235MHz.<br>
+2) Benchmark: Alexnet, ZF, VGG16, YOLO<br>
+3) Baseline: Other FPGA accelerator.
+4) Result:<br>
+A. Xilinx XC7Z0455 resources and performance<br>
+![image](https://user-images.githubusercontent.com/77606152/153264934-f480bf64-f790-4017-bf28-3eacbe6f7a29.png)<br>
+B. Xilinx KU115 resources and performance<br>
+![image](https://user-images.githubusercontent.com/77606152/153264988-ab65783f-08db-4fec-a22a-c60631799f9c.png)<br>
+C. Comparison with other FPGA based DNN accelerators<br>
+![image](https://user-images.githubusercontent.com/77606152/153265073-01b7021a-bca3-47ec-83e9-57720c365492.png)<br>
