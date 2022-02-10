@@ -503,7 +503,7 @@ Edge applications usually ask for real-time processing of streaming inputs that 
 1) An end-to-end Framework(Caffe, Tensorflow) to FPGA automation tool is proposed.<br>
    A. Do training on exsisting Framework and generate model(.prototxt adn .caffemodel)
    B. Pass the model to Generate process. Parsing:Get model information. Optimization: Decide best schdule for low latency within hardware limitation. Construction: Generate pre-build RTL based on the parameter gotten from last step.<br>
-   ![image](https://user-images.githubusercontent.com/77606152/153262470-520f2086-14ab-435f-a96c-465e4baa4ac0.png)
+   ![image](https://user-images.githubusercontent.com/77606152/153262470-520f2086-14ab-435f-a96c-465e4baa4ac0.png)<br>
 2) Flexible quantilization scheme: When the off-chip bandwidth exceeds the limitation(FC layer with low comm to comp ratio), it can retrain the model with lower bit precision.<br>
 3) A fine-grained layer-based pipeline arhcitecture and a column based cache scheme for low latency and less hardware utilization.<br>
    A. Micro architecture: 4x3x3 (inc*h*w)infmap   4*2*2*6 (inc*R*S*outc) kernel<br>
@@ -524,3 +524,25 @@ B. Xilinx KU115 resources and performance<br>
 ![image](https://user-images.githubusercontent.com/77606152/153264988-ab65783f-08db-4fec-a22a-c60631799f9c.png)<br>
 C. Comparison with other FPGA based DNN accelerators<br>
 ![image](https://user-images.githubusercontent.com/77606152/153265073-01b7021a-bca3-47ec-83e9-57720c365492.png)<br>
+
+## 2022.2.9
+### Paper: DiGamma: Domain-aware Genetic Algorithm for HW-Mapping Co-optimization for DNN Accelerators<br>
+### Author: Sheng-Chun Kao, Tushar Krishna and et.cl. <br>
+#### Motivation:
+HW-opt(given mapping strategy, search HW), and Mapping-opt(Fixed hardware, searching strategy) are widely studied. However, since the design space for co-exploration of mapping and hw are huge, how to do co-optimize for the HW and mapping is still an open question.<br>
+#### Content:
+1) A HW-Mapping co-optimization framework is proposed.<br>
+   A. Takes target model, optimization objective, design budget, an optimization algorithm, and  a design constraint((optional, either fixed HW or Mapping). Generatean optimized design point.<br>
+   ![image](https://user-images.githubusercontent.com/77606152/153335121-e8f77330-5796-4e96-99b4-3dd9c8ac57d8.png)<br>
+   B. An excellent Optimization Algorithm(genetic algorithm) and Encode and Decode scheme.<br>
+   ![image](https://user-images.githubusercontent.com/77606152/153335665-b4b17149-fbd9-43ba-af3c-d7bc8ce47997.png)
+<br>
+#### Experiment:
+1) Setup: Area(Only estimate PE and Buffer size, 0.2mm^2 for edge, 7.0mm^2 for cloud), Sampleing under 40K<br>
+2) Benchmark: MobilenetV2, Resnet18, Resnet50, Mnasnet, BERT, DLRM, NCF<br>
+3) Baseline: Other optimization algorithms and HW-opt, Mapping-opt Schemes.
+4) Result:<br>
+A. Algorithm comparsion<br>
+![image](https://user-images.githubusercontent.com/77606152/153336993-893e78d0-9920-4608-8a92-d2969988ebe0.png)<br>
+B. Co-optimized scheme versus HW-opt and Mapping-opt<br>
+![image](https://user-images.githubusercontent.com/77606152/153337074-5f3437c9-ce89-4e01-a2b7-fefaf0264c3d.png)<br>
