@@ -546,3 +546,29 @@ A. Algorithm comparsion<br>
 ![image](https://user-images.githubusercontent.com/77606152/153336993-893e78d0-9920-4608-8a92-d2969988ebe0.png)<br>
 B. Co-optimized scheme versus HW-opt and Mapping-opt<br>
 ![image](https://user-images.githubusercontent.com/77606152/153337074-5f3437c9-ce89-4e01-a2b7-fefaf0264c3d.png)<br>
+
+## 2022.2.11
+### Paper: ESP4ML: Platform-Based Design of Systems-on-Chip for Embedded Machine Learning<br>
+### Author: Davide Giri, Luca P. Carloni and et.cl. <br>
+#### Motivation:
+To simplify the process of designing complete SoCs that can be rapidly prototyped on FPGA boards.<br>
+#### Content:
+1) ESP<br>
+ESP designed a flexible tile-based architecture. Users can leverage SystemC and Cadence Stratus HLS to implement their Accelerator. And these Accelerator can be easily plugged in the SoC through the socket inferface to the multi-plane NOC.<br>
+2) HLS4ML<br>
+Provided a channel for connecting ML framework(Keras, Pytorch, ONNX) and Vivado HLS.<br>
+3) New features proposed<br>
+A. A updated integration flow is proposed: Vivado HLS and Stratus HLS are used to generate Accelerators, ESP integrates these Accs and build the SoC.<br>
+![image](https://user-images.githubusercontent.com/77606152/153723672-bc95d8ee-8d32-4397-bb02-5896ae173267.png)<br>
+B. A reconfigurable p2p communication channels are proposed. Support p2p data transfers among accelerators.<br>
+C. A runtime system in Linux is proposed some that it can dynamically configure and manage and synchronize the Accs.<br>
+D. Combined HLS4ML to the flow.<br>
+#### Experiment:
+1) Platform: Xilinx Ultrascale FPGA @78MHz, Intel i7 8700K processor, NVIDIA Jetson TX1 embedded system<br>
+2) Benchmark: Digit classification(MLP), Image denoising(Autoencoder model)<br>
+3) Baseline: Kernels are invoked serially.<br>
+4) Result:<br>
+A. Energy efficiency:pipe, multi-tread:Kernels runs parallelly.<br>
+![image](https://user-images.githubusercontent.com/77606152/153724107-8ab023c7-87d1-4210-9005-f9028c83f924.png)<br>
+B. P2P energy saving<br>
+![image](https://user-images.githubusercontent.com/77606152/153724160-85fb8f54-7afc-4a67-bc4a-73fc90bfac52.png)<br>
