@@ -506,7 +506,7 @@ Edge applications usually ask for real-time processing of streaming inputs that 
    ![image](https://user-images.githubusercontent.com/77606152/153262470-520f2086-14ab-435f-a96c-465e4baa4ac0.png)<br>
 2) Flexible quantilization scheme: When the off-chip bandwidth exceeds the limitation(FC layer with low comm to comp ratio), it can retrain the model with lower bit precision.<br>
 3) A fine-grained layer-based pipeline arhcitecture and a column based cache scheme for low latency and less hardware utilization.<br>
-   A. Micro architecture: 4x3x3 (inc*h*w)infmap   4*2*2*6 (inc*R*S*outc) kernel<br>
+   A. Micro architecture: 4x3x3 (inc, h, w) infmap; 4x2x2x6 (inc,R,S,outc) kernel<br>
    ![image](https://user-images.githubusercontent.com/77606152/153263926-3ce96b3e-286f-4c8c-a3e2-40a071d1c744.png)<br>
    B. Column based line buffer <br>
    ![image](https://user-images.githubusercontent.com/77606152/153263984-4834dc72-c7bc-4a13-8809-6d5a9ba8a046.png)<br>
