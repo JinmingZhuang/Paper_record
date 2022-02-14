@@ -606,3 +606,31 @@ VR-A: 22.9% more Latency and 18.7% energy improvements.<br>
 VR-B: 21.5% more Latency and 15.5% energy improvements.<br>
 MLPerf: 24.3% more Latency and 18.9% energy improvements.<br>
 Maelstromand RDA cases are Pareto-optimal design points with different strengths in energy and latency.<br>
+
+## 2022.2.12
+### Paper: DNNWEAVER: From High-Level Deep Network Models to FPGA Acceleration<br>
+### Author: Sharma, Hardik, et al.<br> Publish: the Workshop on Cognitive Architectures. 2016.<br>
+#### Motivation:
+Imporve the programability of FPGAs.
+#### Conent:
+1) A mocro-dataflow virtual machine for DNN ACCs: Actually its an interface for translating model to Verilog.<br>
+2) Hand-optimized customizable Verilog template is proposed: DNN ACCs with settled dataflow and achitecture but can have different settings.<br>
+3) An automatical compile flow from Caffe to Verilog.<br>
+![image](https://user-images.githubusercontent.com/77606152/153951104-b2d5634d-6d65-4328-998e-397863381fd7.png)<br>
+#### Experiment:
+1) Platform: Xilinx ZC702 and Altera Stratix V SGSD5, ARM Cortex A15, Tegra K1, Tesla K40<br>
+2) Benchmark: LeMet,Siamese, CIFAR-10 Full, CIFAR-10 Quick, Djinn ASR<br>
+3) Baseline: Xeon E3CPU and GTX650Ti GPU.<br>
+4) Result:<br>
+A. Performance, compared with CPU:<br>
+ZYNQ: 1.3x, Stratix:7.1x.<br>
+![image](https://user-images.githubusercontent.com/77606152/153952244-6bd49227-5af2-4948-a424-628a81510e19.png)
+B. Performance, compared with GPU: <br>
+ZYNQ: 0.05x, Stratix:0.3x compared with K40.<br>
+![image](https://user-images.githubusercontent.com/77606152/153952588-c2da86fd-e571-4354-8e35-7a398731f484.png)
+C. Energy effciency, compared with CPU:<br>
+ZYNQ: 36x, Stratix:20x.<br>
+![image](https://user-images.githubusercontent.com/77606152/153953040-e00343ec-1357-4ab6-bcde-cb3ae9f3671b.png)
+D. Energy effciency, compared with GPU: <br>
+ZYNQ: 3.6x, Stratix:2.0x compared with baseline.<br>
+![image](https://user-images.githubusercontent.com/77606152/153953193-fcb6c6f7-7075-482f-81c4-7a12f8efdef0.png)
