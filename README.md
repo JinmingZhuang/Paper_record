@@ -540,13 +540,13 @@ HW-opt(given mapping strategy, search HW), and Mapping-opt(Fixed hardware, searc
 <br>
 #### Experiment:
 1) Setup: Area(Only estimate PE and Buffer size, 0.2mm^2 for edge, 7.0mm^2 for cloud), Sampleing under 40K<br>
-2) Benchmark: MobilenetV2, Resnet18, Resnet50, Mnasnet, BERT, DLRM, NCF<br>
-3) Baseline: Other optimization algorithms and HW-opt, Mapping-opt Schemes.
+2) Benchmark: MobilenetV2, Resnet18, Resnet50, Mnasnet, BERT, DLRM, NCF.<br>
+3) Baseline: Other optimization algorithms and HW-opt, Mapping-opt Schemes.<br>
 4) Result:<br>
 A. Algorithm comparsion<br>
-![image](https://user-images.githubusercontent.com/77606152/153336993-893e78d0-9920-4608-8a92-d2969988ebe0.png)<br>
+![image](https://user-images.githubusercontent.com/77606152/153963346-3b1e5e4b-c3b0-4a04-aa9c-10fe6da7b85b.png)<br>
 B. Co-optimized scheme versus HW-opt and Mapping-opt<br>
-![image](https://user-images.githubusercontent.com/77606152/153337074-5f3437c9-ce89-4e01-a2b7-fefaf0264c3d.png)<br>
+![image](https://user-images.githubusercontent.com/77606152/153963384-53f7590a-132a-40c9-aac2-522dbc2962d0.png)<br>
 
 ## 2022.2.11
 ### Paper: ESP4ML: Platform-Based Design of Systems-on-Chip for Embedded Machine Learning<br>
@@ -564,7 +564,7 @@ A. A updated integration flow is proposed: Vivado HLS and Stratus HLS are used t
 B. A reconfigurable p2p communication channels are proposed. Support p2p data transfers among accelerators.<br>
 C. A runtime system in Linux is proposed some that it can dynamically configure and manage and synchronize the Accs.<br>
 D. Combined HLS4ML to the flow.<br>
-#### Experiment:
+#### Experiment:<br>
 1) Platform: Xilinx Ultrascale FPGA @78MHz, Intel i7 8700K processor, NVIDIA Jetson TX1 embedded system<br>
 2) Benchmark: Digit classification(MLP), Image denoising(Autoencoder model)<br>
 3) Baseline: Kernels are invoked serially.<br>
