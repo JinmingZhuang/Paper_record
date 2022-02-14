@@ -558,7 +558,7 @@ ESP designed a flexible tile-based architecture. Users can leverage SystemC and 
 2) HLS4ML<br>
 Provided a channel for connecting ML framework(Keras, Pytorch, ONNX) and Vivado HLS.<br>
 3) New features proposed<br>
-A. A updated integration flow is proposed: Vivado HLS and Stratus HLS are used to generate Accelerators, ESP integrates these Accs and build the SoC.<br>
+A. An updated integration flow is proposed: Vivado HLS and Stratus HLS are used to generate Accelerators, ESP integrates these Accs and build the SoC.<br>
 ![image](https://user-images.githubusercontent.com/77606152/153723672-bc95d8ee-8d32-4397-bb02-5896ae173267.png)<br>
 B. A reconfigurable p2p communication channels are proposed. Support p2p data transfers among accelerators.<br>
 C. A runtime system in Linux is proposed some that it can dynamically configure and manage and synchronize the Accs.<br>
