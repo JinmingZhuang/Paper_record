@@ -536,8 +536,7 @@ HW-opt(given mapping strategy, search HW), and Mapping-opt(Fixed hardware, searc
    A. Takes target model, optimization objective, design budget, an optimization algorithm, and  a design constraint((optional, either fixed HW or Mapping). Generatean optimized design point.<br>
    ![image](https://user-images.githubusercontent.com/77606152/153335121-e8f77330-5796-4e96-99b4-3dd9c8ac57d8.png)<br>
    B. An excellent Optimization Algorithm(genetic algorithm) and Encode and Decode scheme.<br>
-   ![image](https://user-images.githubusercontent.com/77606152/153335665-b4b17149-fbd9-43ba-af3c-d7bc8ce47997.png)
-<br>
+   ![image](https://user-images.githubusercontent.com/77606152/153335665-b4b17149-fbd9-43ba-af3c-d7bc8ce47997.png)<br>
 #### Experiment:
 1) Setup: Area(Only estimate PE and Buffer size, 0.2mm^2 for edge, 7.0mm^2 for cloud), Sampleing under 40K<br>
 2) Benchmark: MobilenetV2, Resnet18, Resnet50, Mnasnet, BERT, DLRM, NCF.<br>
