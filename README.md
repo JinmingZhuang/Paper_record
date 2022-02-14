@@ -504,7 +504,7 @@ Edge applications usually ask for real-time processing of streaming inputs that 
    A. Do training on exsisting Framework and generate model(.prototxt adn .caffemodel)
    B. Pass the model to Generate process. Parsing:Get model information. Optimization: Decide best schdule for low latency within hardware limitation. Construction: Generate pre-build RTL based on the parameter gotten from last step.<br>
    ![image](https://user-images.githubusercontent.com/77606152/153262470-520f2086-14ab-435f-a96c-465e4baa4ac0.png)<br>
-2) Flexible quantilization scheme: When the off-chip bandwidth exceeds the limitation(FC layer with low comm to comp ratio), it can retrain the model with lower bit precision.<br>
+2) Flexible quantization scheme: When the off-chip bandwidth exceeds the limitation(FC layer with low comm to comp ratio), it can retrain the model with lower bit precision.<br>
 3) A fine-grained layer-based pipeline arhcitecture and a column based cache scheme for low latency and less hardware utilization.<br>
    A. Micro architecture: 4x3x3 (inc, h, w) infmap; 4x2x2x6 (inc,R,S,outc) kernel<br>
    ![image](https://user-images.githubusercontent.com/77606152/153263926-3ce96b3e-286f-4c8c-a3e2-40a071d1c744.png)<br>
@@ -512,7 +512,7 @@ Edge applications usually ask for real-time processing of streaming inputs that 
    ![image](https://user-images.githubusercontent.com/77606152/153263984-4834dc72-c7bc-4a13-8809-6d5a9ba8a046.png)<br>
    C. Fine-grained pipelining scheme<br>
    ![image](https://user-images.githubusercontent.com/77606152/153264180-ae67543c-f606-47be-9138-b5dbeaad2164.png)<br>
-4) An automatic resource allocatin management: First decide the DSP utilization, then balance the commnication and computation be allocating enough on-chip buffer.<br>
+4) An automatic resource allocation management: First decide the DSP utilization, then balance the commnication and computation be allocating enough on-chip buffer.<br>
 #### Experiment:
 1) Platform: Xilinx XC7Z045 @200MHz, Xilinx KU115 220-235MHz.<br>
 2) Benchmark: Alexnet, ZF, VGG16, YOLO<br>
