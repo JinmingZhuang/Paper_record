@@ -549,7 +549,7 @@ B. Co-optimized scheme versus HW-opt and Mapping-opt<br>
 
 ## 2022.2.11
 ### Paper: ESP4ML: Platform-Based Design of Systems-on-Chip for Embedded Machine Learning<br>
-### Author: Davide Giri, Luca P. Carloni and et.cl. <br>
+### Author: Davide Giri, Luca P. Carloni and et.cl. <br> 
 #### Motivation:
 To simplify the process of designing complete SoCs that can be rapidly prototyped on FPGA boards.<br>
 #### Content:
@@ -572,3 +572,37 @@ A. Energy efficiency:pipe, multi-tread:Kernels runs parallelly.<br>
 ![image](https://user-images.githubusercontent.com/77606152/153724107-8ab023c7-87d1-4210-9005-f9028c83f924.png)<br>
 B. P2P energy saving<br>
 ![image](https://user-images.githubusercontent.com/77606152/153724160-85fb8f54-7afc-4a67-bc4a-73fc90bfac52.png)<br>
+
+## 2022.2.12
+### Paper: Heterogeneous Dataflow Accelerators for Multi-DNN Workloads<br>
+### Author: Hyoukjun Kwon, Vikas Chandra and et.cl. <br> Publish: HPCA’21<br>
+#### Motivation:
+Emerging applications such as AR/VR lead to multi-DNN workloads, which includes various layer shape, layer operation. However, no single dataflow style is good for all the layers. An "heterogeneous dataflow Accelerators" architecture is proposed to achieve the global optimal EDP for multi-DNN Workloads bu combining different FDAs<br>
+![image](https://user-images.githubusercontent.com/77606152/153783717-bd6a3a78-840d-480a-b51c-d2b3738ae0f7.png)
+#### Conent:
+1) A hardware and schedule co-design space exploration algorithm is proposed<br>
+![image](https://user-images.githubusercontent.com/77606152/153783794-734b0161-96f4-47d5-97f9-eddb975db2c2.png)<br>
+A. Optimized hardware resource distribution for various sub-accs.<br>
+B. Optimized layer execution schedules on the sub-accs.<br>
+Consideration: Load balance(The largest latency divided by the least one), dataflow preference.<br>
+Constraints: Layer dependency(breadth first or depth first) and Memory size. <br>
+Post processing: Layer change to eliminating redundant idle time.<br>
+![image](https://user-images.githubusercontent.com/77606152/153786853-f8edd8df-0a56-467c-8d40-fb5c0f02b73e.png)<br>
+2) A NVDLA and Shi-diannao based HDA design called Maelstrom is used to explore the scalability over three multi-DNN work-load  <br>
+A. NVDLA: Weight-stationary dataflow, exploits weight reuse and has parallelism over input and output channels.Suitble for deep channel layers<br> 
+A. Shi-diannao: Output-stationary dataflow, exploits output and convolutional reuse. Suitble for high resolution activation layers<br> 
+#### Experiment:
+1) Platform: CAD tools with 28nm technology library and MAESTRO<br>
+2) Benchmark: <br>
+![image](https://user-images.githubusercontent.com/77606152/153787469-00b65fd0-2e68-4d27-b629-15adf8ea5d98.png)<br>
+3) Baseline: RDA and FDA.<br>
+4) Result:<br>
+A. Impact of Workloads compared with FDAs.<br>
+VR-A: 63.26% Latency and 4.05% energy improvements.<br>
+VR-B: 86.8% Latency and 6.61% energy improvements.<br>
+MLPerf: 48.1% Latency and 4.4% energy improvements.<br>
+B. Compared with RDA: <br>
+VR-A: 22.9% more Latency and 18.7% energy improvements.<br>
+VR-B: 21.5% more Latency and 15.5% energy improvements.<br>
+MLPerf: 24.3% more Latency and 18.9% energy improvements.<br>
+Maelstromand RDA cases are Pareto-optimal design points with different strengths in energy and latency.<br>
