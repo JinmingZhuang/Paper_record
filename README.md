@@ -511,6 +511,7 @@ Edge applications usually ask for real-time processing of streaming inputs that 
    B. Column based line buffer <br>
    ![image](https://user-images.githubusercontent.com/77606152/153263984-4834dc72-c7bc-4a13-8809-6d5a9ba8a046.png)<br>
    C. Fine-grained pipelining scheme<br>
+   ![image](https://user-images.githubusercontent.com/77606152/153961047-49625a75-f59e-4123-90d4-6b85a575cf11.png)<br>
    ![image](https://user-images.githubusercontent.com/77606152/153264180-ae67543c-f606-47be-9138-b5dbeaad2164.png)<br>
 4) An automatic resource allocation management: First decide the DSP utilization, then balance the commnication and computation be allocating enough on-chip buffer.<br>
 #### Experiment:
@@ -523,7 +524,6 @@ A. Xilinx XC7Z0455 resources and performance<br>
 B. Xilinx KU115 resources and performance<br>
 ![image](https://user-images.githubusercontent.com/77606152/153264988-ab65783f-08db-4fec-a22a-c60631799f9c.png)<br>
 C. Comparison with other FPGA based DNN accelerators<br>
-![image](https://user-images.githubusercontent.com/77606152/153961047-49625a75-f59e-4123-90d4-6b85a575cf11.png)<br>
 ![image](https://user-images.githubusercontent.com/77606152/153265073-01b7021a-bca3-47ec-83e9-57720c365492.png)<br>
 
 ## 2022.2.9
