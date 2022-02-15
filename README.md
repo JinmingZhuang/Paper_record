@@ -611,7 +611,7 @@ Maelstromand RDA cases are Pareto-optimal design points with different strengths
 ### Paper: DNNWEAVER: From High-Level Deep Network Models to FPGA Acceleration<br>
 ### Author: Sharma, Hardik, et al.<br> Publish: the Workshop on Cognitive Architectures. 2016.<br>
 #### Motivation:
-Imporve the programability of FPGAs.
+Improve the programmability of FPGAs.
 #### Conent:
 1) A mocro-dataflow virtual machine for DNN ACCs: Actually its an interface for translating model to Verilog.<br>
 2) Hand-optimized customizable Verilog template is proposed: DNN ACCs with settled dataflow and achitecture but can have different settings.<br>
