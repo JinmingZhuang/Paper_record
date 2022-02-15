@@ -624,13 +624,13 @@ Improve the programmability of FPGAs.
 4) Result:<br>
 A. Performance, compared with CPU:<br>
 ZYNQ: 1.3x, Stratix:7.1x.<br>
-![image](https://user-images.githubusercontent.com/77606152/153952244-6bd49227-5af2-4948-a424-628a81510e19.png)
+![image](https://user-images.githubusercontent.com/77606152/153952244-6bd49227-5af2-4948-a424-628a81510e19.png)<br>
 B. Performance, compared with GPU: <br>
 ZYNQ: 0.05x, Stratix:0.3x compared with K40.<br>
-![image](https://user-images.githubusercontent.com/77606152/153952588-c2da86fd-e571-4354-8e35-7a398731f484.png)
+![image](https://user-images.githubusercontent.com/77606152/153952588-c2da86fd-e571-4354-8e35-7a398731f484.png)<br>
 C. Energy effciency, compared with CPU:<br>
 ZYNQ: 36x, Stratix:20x.<br>
-![image](https://user-images.githubusercontent.com/77606152/153953040-e00343ec-1357-4ab6-bcde-cb3ae9f3671b.png)
+![image](https://user-images.githubusercontent.com/77606152/153953040-e00343ec-1357-4ab6-bcde-cb3ae9f3671b.png)<br>
 D. Energy effciency, compared with GPU: <br>
 ZYNQ: 3.6x, Stratix:2.0x compared with baseline.<br>
-![image](https://user-images.githubusercontent.com/77606152/153953193-fcb6c6f7-7075-482f-81c4-7a12f8efdef0.png)
+![image](https://user-images.githubusercontent.com/77606152/153953193-fcb6c6f7-7075-482f-81c4-7a12f8efdef0.png)<br>
